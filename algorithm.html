@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <title>test page</title>
+</head>
+
+<body>
+   test
+
+
+
+<script>
+     //verify prime number
+     function isPrime(n) {
+        var divid = 2;
+
+        while ( n > divid) {
+            if ( n % divid == 0) {
+                return false;
+            } else {
+                return true;
+                divid++;
+            }
+        }
+     };
+     //alert(isPrime(169));
+
+     //find prime factors
+     function primeFactors(n) {
+        var factors = [];
+        var divid = 2;
+
+        while (n>2) {
+            if(n%divid == 0) {
+              factors.push(divid);
+                n=n/divid;
+            } else {
+                divid++;
+            }
+        }
+        return factors;
+     }
+
+     //console.log(primeFactors(6));
+
+     //fibonacci nth number solution 1
+     function fibonacci(n) {
+        var fibo = [0, 1];
+
+        if (n<=2) {
+          return 1;
+        }
+        for (var i=2; i<=n; i++) {
+            fibo[i] = fibo[i-2]+fibo[i-1];
+        }
+        return fibo[n];
+     }
+     //alert(fibonacci(16));
+</script>
+</body>
+
+</html>
