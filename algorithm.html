@@ -47,7 +47,7 @@
 
      //fibonacci nth number solution 1
      function fibonacci(n) {
-        var fibo=[0, 1];
+        var fibo = [0, 1];
 
         if (n<=2) {
             return 1;
@@ -57,18 +57,102 @@
         }
         return fibo[n];
      }
-
      //alert(fibonacci(12));
 
-     // find great common divisor
-
-     function greatDivisor(a, b){
-        var divisor = 2;
-        var
-
-
+     //fibonacci nth number recursive solution
+     function fibonaccis(n) {
+        if (n<=1) {
+            return n;
+        } else {
+            return fibonaccis(n-2) + fibonaccis(n-1);
+        }
      }
+     //alert(fibonaccis(12));
+
+     //find the great common divisor of 2 numbers
+    function greatDivisor(a, b) {
+         var divisor = 2,
+             greatDivisor = 1;
+
+         if (a<2 || b<2) {
+            return 1;
+         }
+         while (a>=divisor && b>=divisor) {
+            if (a%divisor==0 && b%divisor==0) {
+                greatDivisor = divisor;
+            }
+            divisor++;
+         }
+         return greatDivisor;
+     }
+     //alert(greatDivisor(14, 21));
+
+     //great common divisor recursive solution
+     function greatDivisors(a, b) {
+        if (b==0) {
+          return a;
+        } else {
+          return greatDivisors(b, a%b);
+        }
+     }
+     //alert(greatDivisors(14, 21));
+
+
+     //remove duplicate in arrays
+     function removeDup(arr) {
+        var exists = {};
+        var array = [];
+        var elm;
+
+        for(var i=0; i<arr.length; i++) {
+            elm = arr[i];
+            if (!exists[elm]) {
+                array.push(elm);
+                exists[elm] =true;
+            }
+        }
+        return array;
+     }
+     //alert(removeDup([1, 3,3,3,4,5,6,6,6]));
+
+
+     //merge 2 sorted arrays
+     function mergeArray(a, b) {
+        var merged = [];
+        var aElm = a[0];
+        var bElm = b[0];
+        var i = 1;
+        var j = 1;
+
+        if (a.length == 0) return {b};
+        if (b.length == 0) return {a};
+
+        while (aElm || bElm) {
+            if ((aElm && !bElm) || (aElm < bElm)) {
+               merged.push(aElm);
+               aElm = a[i++];
+            } else {
+               merged.push(bElm);
+               bElm = b[j++];
+            }
+        }
+        return merged;
+     }
+
+     //alert(mergeArray([2,5,6,9], [2,5,6,9,10,11]));
+
+     //swap number value without temp
+     function swapNum(a, b) {
+        b = b - a;
+        a = a + b;
+        b = a - b;
+
+        console.log(a+','+b);
+     }
+     //swapNum(111, 222);
+
+     //reverse string
+
 </script>
 </body>
-
 </html>
