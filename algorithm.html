@@ -152,7 +152,33 @@
      //swapNum(111, 222);
 
      //reverse string
+     function reverse(str) {
+        var rtnStr = '';
 
+        for(i=str.length-1; i>=0; i--) {
+            rtnStr+= str[i];
+        }
+        return rtnStr;
+     }
+     //alert(reverse('day goes by'));
+
+     //cleaner solution
+     function reverseC(str) {
+        if (!str || str.length < 2) {
+          return str;
+        }
+        return str.split('').reverse().join('');
+     }
+     //alert(reverseC('koj jode ol'));
+
+     //recursive solution
+     function reverseR(str) {
+        if (str==='') {
+            return str;
+        }
+        return reverse(str.substr(1)) + str.charAt(0);
+     }
+     //alert(reverseR('ddsd sdasd ddweq'));
 </script>
 </body>
 </html>
