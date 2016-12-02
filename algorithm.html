@@ -7,7 +7,7 @@
 </head>
 
 <body>
-   test
+   <h1>test</h1>
 
 
 
@@ -155,7 +155,7 @@
      function reverse(str) {
         var rtnStr = '';
 
-        for(i=str.length-1; i>=0; i--) {
+        for(var i=str.length-1; i>=0; i--) {
             rtnStr+= str[i];
         }
         return rtnStr;
@@ -179,6 +179,92 @@
         return reverse(str.substr(1)) + str.charAt(0);
      }
      //alert(reverseR('ddsd sdasd ddweq'));
+
+     //reverse words in certain place [NEEDS MORE SOLUTIONS]
+     function reversePlace(str) {
+        return str.split(' ').reverse().join(' ').split('').reverse().join('');
+     }
+     //alert(reversePlace('I am the'));
+
+     //remove duplicate characters
+     function removeDupchar (str) {
+         var char;
+         var charCount = {};
+         var string = [];
+
+         for (var i=0; i<str.length;i++) {
+            char = str[i];
+            if (charCount[char]) {
+                charCount[char]++;
+            } else {
+                charCount[char] = 1;
+            }
+         }
+
+         for (var j in charCount) {
+            if (charCount[j] == 1) {
+                string.push(j);
+            }
+         }
+
+         return string.join('');
+     }
+
+     //alert(removeDupchar('Learn more javascript dude'));
+
+     //check palindrome
+     function checkPalin(str) {
+        if (str == str.split('').reverse().join('')) {
+          return true;
+        } else {
+          return false;
+        }
+     }
+     //console.log(checkPalin('dad'));
+
+     //check palindrome without using build in fuction
+     function checkPalins(str) {
+        var len = str.length;
+
+        for(var i=0; i<len/2; i++) {
+            if(str[i] !== str[len-1-i]) {
+                return false;
+            }
+        }
+
+        return true;
+     }
+     //console.log(checkPalins('dad'));
+
+     //generate random number
+     function ran5() {
+        return Math.random()*4 + 1; //*ranM -1
+     }
+
+     function ran13() {
+        return ran5()/5 *2 + 11; // 2+11=13 ran13
+     }
+
+     //console.log(ran5());
+     //console.log(ran13());
+
+
+     //sum of 2 numbers in the array equal to given number
+     function checkSum(arr, sum) {
+        var len = arr.length;
+            for(var i=0;i<len-1;i++) {
+                for(var j=i+1;j<len;j++) {
+                    if(arr[i] + arr[j] ==sum) {
+                      return true;
+                    }
+                }
+            }
+        return false;
+     }
+
+     //alert(checkSum([6,4,2,2,1,7], 13))
+
+
 </script>
 </body>
 </html>
